@@ -10,9 +10,7 @@ import UIKit
 class ViewBouquetsScrollCVC: UIViewController{
 
   
-  @IBOutlet weak var name: UILabel!
-  @IBOutlet weak var image: UIImageView!
-  @IBOutlet weak var price: UILabel!
+  
   
   
   var imageOfBouquet: UIImage!
@@ -29,9 +27,9 @@ class ViewBouquetsScrollCVC: UIViewController{
   
   
   override func viewWillAppear(_ animated: Bool) {
-    image.image = imageOfBouquet
-    price.text = "\(priceOfBouquet)SAR"
-    name.text = nameOfBouquet
+//    image.image = imageOfBouquet
+//    price.text = "\(priceOfBouquet)SAR"
+//    name.text = nameOfBouquet
     
   }
 }

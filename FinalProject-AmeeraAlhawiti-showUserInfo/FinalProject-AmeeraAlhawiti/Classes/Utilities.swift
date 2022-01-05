@@ -48,19 +48,22 @@ class Utilities {
   
   static func styleHollowButton(_ button: UIButton){
    
-    
+
     let bottomLine = CALayer()
-    
+
     bottomLine.frame = CGRect (x: 0,
                                y: button.frame.height-2,
                                width: button.frame.width,
                                height: 1)
 
-    bottomLine.backgroundColor = UIColor.cmWhite.cgColor
+    bottomLine.backgroundColor = UIColor.cmRed.cgColor
+//    button.layer.borderColor = UIColor.cmRed.cgColor
+//    button.layer.borderWidth = 1
+//    button.layer.cornerRadius = 10
  
     // Add the line to the text field
     button.layer.addSublayer(bottomLine)
-    button.tintColor = UIColor.black
+    button.tintColor = UIColor.cmWhite
   }
   
   

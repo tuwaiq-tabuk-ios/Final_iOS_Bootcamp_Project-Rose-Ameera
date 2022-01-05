@@ -47,16 +47,11 @@ class MakeBouquetsCollection: UIViewController,
   }
   
   
-//  func collectionView(_ collectionView: UICollectionView,
-//                      didSelectItemAt indexPath: IndexPath) {
-//    
-//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//    let controller = storyboard.instantiateViewController(withIdentifier: "ViewFlowersCollection") as! ViewFlowersCollectionVC
-//    controller.flowerImage = allFlowers[indexPath.row].imageOfFlower
-//    controller.flowerName = allFlowers[indexPath.row].flowerName
-//    controller.flowerPrice = allFlowers[indexPath.row].priceOfFlower
-//    self.navigationController?.pushViewController(controller, animated: true)
-//  }
+  @IBAction func addToCart(_ sender: UIButton) {
+    
+    
+  }
+  
 
 }
 

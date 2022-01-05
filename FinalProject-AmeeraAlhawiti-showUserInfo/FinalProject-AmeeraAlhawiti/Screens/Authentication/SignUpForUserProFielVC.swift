@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseFirestore
 
 
 class SignUpForUserProFielVC:UIViewController {
@@ -94,8 +95,17 @@ class SignUpForUserProFielVC:UIViewController {
 
           // User was created successfully, now store the first name and last name
           let db = Firestore.firestore()
+          let id = Auth.auth().currentUser?.uid
+          
+          db.collection("users").document(id!).setData(["firstname": firstName,
+                                                       "lastname": lastName,
+                                                       "email": email,
+                                                       "password": password,
+                                                       "uid": result!.user.uid])
+          { (error) in
 
-          db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
+
+         // db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
 
             if error != nil {
               // Show error message

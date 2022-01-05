@@ -23,7 +23,7 @@
 		207AF8212779182300A8AC9B /* ThirdCustomTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207AF81D2779182300A8AC9B /* ThirdCustomTVCell.swift */; };
 		207AF8222779182300A8AC9B /* ForthCostumTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207AF81E2779182300A8AC9B /* ForthCostumTVCell.swift */; };
 		207AF8232779182300A8AC9B /* SecondCustomTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207AF81F2779182300A8AC9B /* SecondCustomTVCell.swift */; };
-		207B4894276DFDEE00E31945 /* SginUpPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B4893276DFDEE00E31945 /* SginUpPopUpVC.swift */; };
+		207B4894276DFDEE00E31945 /* MorePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B4893276DFDEE00E31945 /* MorePopUpVC.swift */; };
 		20A136B9275CDC4800C5E2C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A136B8275CDC4800C5E2C2 /* AppDelegate.swift */; };
 		20A136BB275CDC4800C5E2C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A136BA275CDC4800C5E2C2 /* SceneDelegate.swift */; };
 		20A136C0275CDC4800C5E2C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20A136BE275CDC4800C5E2C2 /* Main.storyboard */; };
@@ -69,7 +69,7 @@
 		207AF81D2779182300A8AC9B /* ThirdCustomTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdCustomTVCell.swift; sourceTree = "<group>"; };
 		207AF81E2779182300A8AC9B /* ForthCostumTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForthCostumTVCell.swift; sourceTree = "<group>"; };
 		207AF81F2779182300A8AC9B /* SecondCustomTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCustomTVCell.swift; sourceTree = "<group>"; };
-		207B4893276DFDEE00E31945 /* SginUpPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SginUpPopUpVC.swift; sourceTree = "<group>"; };
+		207B4893276DFDEE00E31945 /* MorePopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePopUpVC.swift; sourceTree = "<group>"; };
 		20A136B5275CDC4800C5E2C2 /* FinalProject-AmeeraAlhawiti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FinalProject-AmeeraAlhawiti.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20A136B8275CDC4800C5E2C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20A136BA275CDC4800C5E2C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				20E3C6802771ADFC00FD4E7F /* AboutUsPageVC.swift */,
-				207B4893276DFDEE00E31945 /* SginUpPopUpVC.swift */,
+				207B4893276DFDEE00E31945 /* MorePopUpVC.swift */,
 				205EF70E27730D4A00CB5338 /* CustmerCarePopupVC.swift */,
 			);
 			path = SlidOutScreens;
@@ -393,7 +393,7 @@
 				207AF8232779182300A8AC9B /* SecondCustomTVCell.swift in Sources */,
 				20DE30B4277C479A003389D5 /* Bouquets.swift in Sources */,
 				207AF81A2779181D00A8AC9B /* UserProfileScreen.swift in Sources */,
-				207B4894276DFDEE00E31945 /* SginUpPopUpVC.swift in Sources */,
+				207B4894276DFDEE00E31945 /* MorePopUpVC.swift in Sources */,
 				20DE30AF277C4651003389D5 /* ViewBouquetsScrollCVC.swift in Sources */,
 				207AF8152779136E00A8AC9B /* SearchBarTVC.swift in Sources */,
 				20F0FE9A2770994000C63DB5 /* ViewBouquetsCVC.swift in Sources */,

@@ -7,6 +7,9 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+
 
 class UserProfileScreen: UIViewController {
   
@@ -20,6 +23,13 @@ class UserProfileScreen: UIViewController {
 
   @IBOutlet weak var upDateButton: UIButton!
   @IBOutlet weak var logOutButton: UIButton!
+  
+  
+  var firstName : String = ""
+   var lastName : String = ""
+   var email: String = ""
+  var password : String = ""
+
   
   
   // add date Picker to date birth text field
@@ -51,11 +61,11 @@ class UserProfileScreen: UIViewController {
 //
     
   // MARK: - display the user info in the text field
-      Auth.auth().addStateDidChangeListener { auth, user in
-      if Auth.auth().currentUser != nil {
-        let email = user?.email
-        print("\n\n#####EMAIL: \(String(describing: email))")
-        self.emailUserProfile.text = email!
+//      Auth.auth().addStateDidChangeListener { auth, user in
+//      if Auth.auth().currentUser != nil {
+//        let email = user?.email
+//        print("\n\n#####EMAIL: \(String(describing: email))")
+//        self.emailUserProfile.text = email!
         
        
         
@@ -84,8 +94,8 @@ class UserProfileScreen: UIViewController {
 //          }
 //        }
         
-      }
-    }
+//      }
+//    }
   }
   
   
@@ -103,6 +113,45 @@ class UserProfileScreen: UIViewController {
 //    view.endEditing(true)
 //  }
   
+  
+  override func viewWillAppear(_ animated: Bool) {
+    let user = Auth.auth().currentUser
+    print(user?.uid)
+    if let currentUser = user {
+     db.collection("users").document(currentUser.uid).getDocument { doc , err in
+      if err != nil {
+       print(err!)
+      }
+      else{
+       let data = doc!.data()!
+        
+       self.firstName = data["firstname"] as! String
+        self.lastName = data["lastname"] as! String
+       self.email = (user?.email)!
+       self.password = data["password"] as! String
+     //  print(“**********DATA : \(data)“)
+        
+        
+       self.firstNameUserProfile.text = self.firstName
+        self.lastNameUserProfile.text = self.lastName
+       self.emailUserProfile.text = self.email
+       self.passwordUserProfile.text = self.password
+       }
+     }
+    }
+   }
+
+
+
+
+
+
+
+
+
+
+
+
   
   @IBAction func logOutPressed(_ sender: UIButton) {
     do{
