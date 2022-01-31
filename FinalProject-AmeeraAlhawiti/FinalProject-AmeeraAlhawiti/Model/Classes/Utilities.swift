@@ -8,37 +8,34 @@ import UIKit
 
 class Utilities {
   static func styleTextField ( _ textfield: UITextField){
-    let bottomLine = CALayer()
     
-    bottomLine.frame = CGRect (x: 0,
-                               y: textfield.frame.height-2,
-                               width: textfield.frame.width,
-                               height: 2)
-
-    bottomLine.backgroundColor = UIColor.cmMainColor.cgColor
+    textfield.layer.cornerRadius = 20
+   // textfield.backgroundColor = UIColor.cmPink
+//    let bottomLine = CALayer()
+//    bottomLine.frame = CGRect (x: 0,
+//                               y: textfield.frame.height-2,
+//                               width: textfield.frame.width,
+//                               height: 2)
+//    bottomLine.backgroundColor = UIColor.cmWhite.cgColor
+    
     // remove border on text feild
-    textfield.borderStyle = .none
+//    textfield.borderStyle = .none
     // Add the line to the text field
-    textfield.layer.addSublayer(bottomLine)
+//    textfield.layer.addSublayer(bottomLine)
   }
   
   static func styleLabel ( _ label: UILabel){
     let bottomLine = CALayer()
-    
     bottomLine.frame = CGRect (x: 0,
                                y: label.frame.height-2,
                                width: label.frame.width,
                                height: 2)
-
     bottomLine.backgroundColor = UIColor.cmMainColor.cgColor
- 
-    // Add the line to the text field
     label.layer.addSublayer(bottomLine)
   }
   
   
   static func styleFilldButton(_ button: UIButton){
-    
     button.tintColor = UIColor.label
     button.layer.borderColor = UIColor.cmMainColor.cgColor
     button.layer.borderWidth = 1

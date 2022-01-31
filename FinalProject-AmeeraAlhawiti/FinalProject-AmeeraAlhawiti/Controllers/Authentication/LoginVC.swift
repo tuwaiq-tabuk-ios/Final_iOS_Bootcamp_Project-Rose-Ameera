@@ -12,16 +12,12 @@ import Firebase
 class LoginVC: UIViewController{
   
   
-
-  
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var logInButton: UIButton!
   @IBOutlet weak var errorLabel: UILabel!
   
-  
-  
-  public var vc = UIViewController()
+//  public var vc = UIViewController()
   
   var iconClick = false
   var imageicone = UIImageView()
@@ -29,6 +25,8 @@ class LoginVC: UIViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpElements()
+    
+    hideKeyboardWhenTappedAround()
     
     // MARK: - for handel password
     imageicone.image = UIImage(named: "hideeye")
@@ -64,6 +62,7 @@ class LoginVC: UIViewController{
       passwordTextField.isSecureTextEntry = true
     }
   }
+  
   
   // textfield and button style
   func setUpElements(){

@@ -1,38 +1,50 @@
-//
-//  ShopCardVC.swift
-//  FinalProject-AmeeraAlhawiti
-//
-//  Created by Ameera BA on 22/12/2021.
-//
-
 import UIKit
-
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 class ShopCardVC: UIViewController,
                   UITableViewDelegate,
                   UITableViewDataSource{
-    
   
   @IBOutlet weak var shopCardTable: UITableView!
   @IBOutlet weak var continueButton: UIButton!
   
   
-  var item = [Products(image: UIImage(named: "flower4")!, name: "flower3", price: 22.0)]
+  var item: [ShowData] = []
+  let db = Firestore.firestore()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     shopCardTable.delegate = self
     shopCardTable.dataSource = self
-    
-    continueButton.layer.borderWidth = 2
+    getData()
+    continueButton.layer.cornerRadius = 25
+    continueButton.layer.borderWidth = 1
     continueButton.layer.borderColor = UIColor.black.cgColor
   }
   
   
-  @IBAction func doneShopCartPage(_ sender: UIButton) {
-//    self.view.removeFromSuperview()
+  //MARK: reload data in table
+  func getData(){
+    let userId = Auth.auth().currentUser?.uid
+    db.collection("users").document(userId!).collection("Cart").getDocuments
+    { Snapshot, error in
+      if error == nil {
+        for document in Snapshot!.documents {
+          let imageWantPay = document.get("image") as! String
+          let imageName = document.get("name") as! String
+          let imagePrice = document.get("price") as! Double
+          
+          self.item.append(ShowData(image: imageWantPay,
+                                    price: "\(imagePrice)",
+                                    name: imageName))
+          self.shopCardTable.reloadData()
+        }
+      }
+    }
   }
-  
   
   
   func tableView(_ tableView: UITableView,
@@ -40,21 +52,30 @@ class ShopCardVC: UIViewController,
     return item.count
   }
   
+  
   func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell") as! ShopCartCell
-    
     let data = item[indexPath.row]
-    cell.setUpCartCell(photo: data.image,
-                       nameLabel: data.name,
-                       priceLabel: data.price)
+    cell.cellNameLabel.text = data.name
+    cell.cellPriceLabel.text = "\(data.price) SAR"
+    DispatchQueue.global().async{
+      let data = try? Data(contentsOf: URL(string: self.item[indexPath.row].image)!)
+      if let data = data, let image = UIImage(data: data) {
+        DispatchQueue.main.async {
+          cell.imageCell?.image = image
+          cell.imageCell?.contentMode = .scaleToFill
+        }
+      }
+    }
     return cell
   }
   
-  func tableView(_ tableView: UITableView,
-                 heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 100
-  }
+  
+//  func tableView(_ tableView: UITableView,
+//                 heightForRowAt indexPath: IndexPath) -> CGFloat {
+//    return 100
+//  }
   
   
   func tableView(_ tableView: UITableView,
@@ -62,13 +83,18 @@ class ShopCardVC: UIViewController,
                  IndexPath) -> UISwipeActionsConfiguration? {
     let deletAction = UIContextualAction(style: .destructive,
                                          title: "Delete") { action, view, completion in
-     // self.deletData(name: self.arrForNames[indexPath.row])
       self.item.remove(at: indexPath.row)
       self.shopCardTable.reloadData()
       completion(true)
     }
     return UISwipeActionsConfiguration(actions: [deletAction])
   }
-
+  
+  
+  //MARK: remove select from cell
+  func tableView(_ tableView: UITableView,
+                 didSelectRowAt indexPath: IndexPath) {
+      //Change the selected background view of the cell.
+    shopCardTable.deselectRow(at: indexPath, animated: true)
+  }
 }
-

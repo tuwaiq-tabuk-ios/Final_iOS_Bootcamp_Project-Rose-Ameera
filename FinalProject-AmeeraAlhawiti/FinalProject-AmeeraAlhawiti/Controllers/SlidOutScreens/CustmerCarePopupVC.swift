@@ -8,8 +8,8 @@
 import UIKit
 import MessageUI
 
-class CustmerCarePopupVC: UIViewController, MFMailComposeViewControllerDelegate {
-  
+class CustmerCarePopupVC: UIViewController,
+                          MFMailComposeViewControllerDelegate {
   
   @IBOutlet weak var contactView: UIView!
   @IBOutlet weak var questionImage: UIImageView!
@@ -21,19 +21,10 @@ class CustmerCarePopupVC: UIViewController, MFMailComposeViewControllerDelegate 
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     contactView.layer.cornerRadius = 30
-    contactView.layer.borderColor = UIColor.cmMainColor.cgColor
+    contactView.layer.borderColor = UIColor.cmPink.cgColor
     contactView.layer.borderWidth = 1
     questionImage.layer.cornerRadius = 20
-    
-//    self.view.backgroundColor = UIColor.cmWhite.withAlphaComponent(1.0)
-  }
-  
-  
-  // MARK: - Done button for dismiss popup view
-  @IBAction func donePressed(_ sender: UIButton) {
-  //  self.view.removeFromSuperview()
   }
   
   
@@ -45,12 +36,12 @@ class CustmerCarePopupVC: UIViewController, MFMailComposeViewControllerDelegate 
   
   
   @IBAction func whatsappPressed(_ sender: UIButton) {
-    
     if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed){
       if let whatsappURL = URL(string: urlString) {
         if UIApplication.shared.canOpenURL(whatsappURL){
           if #available(iOS 10.0, *) {
-            UIApplication.shared.open(whatsappURL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(whatsappURL, options: [:],
+                                      completionHandler: nil)
           } else {
             UIApplication.shared.openURL(whatsappURL)
           }
@@ -61,5 +52,4 @@ class CustmerCarePopupVC: UIViewController, MFMailComposeViewControllerDelegate 
       }
     }
   }
-  
 }

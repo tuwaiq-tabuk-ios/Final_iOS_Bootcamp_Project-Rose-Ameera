@@ -1,10 +1,3 @@
-//
-//  OnboardingVC.swift
-//  FinalProject-AmeeraAlhawiti
-//
-//  Created by Ameera BA on 02/01/2022.
-//
-
 import UIKit
 
 class OnboardingVC: UIViewController {
@@ -16,7 +9,7 @@ class OnboardingVC: UIViewController {
   
   var slides = [OnboardingSlide (title: "Want to buy a bouquet of roses?", image: UIImage(named: "Want?")!),
                 OnboardingSlide(title: "And you at home?", image: UIImage(named: "delivery")!),
-                OnboardingSlide(title: "Welcome To Rosé", image: UIImage(named: "IMG_1156")!)]
+                OnboardingSlide(title: "Welcome To Rosé", image: UIImage(named: "welcom")!)]
   
   var currentPage = 0 {
     didSet {
@@ -30,33 +23,26 @@ class OnboardingVC: UIViewController {
     }
   }
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     slideScreenCollection.delegate = self
     slideScreenCollection.dataSource = self
-    
-    
   }
   
+  
   @IBAction func nextButtonPressed(_ sender: UIButton) {
-    
     if currentPage == slides.count - 1 {
-      
       let controller = storyboard?.instantiateViewController(withIdentifier: "homeNavigation") as! UINavigationController
       controller.modalPresentationStyle = .fullScreen
-     // controller.modalTransitionStyle = .flipHorizontal
       present(controller, animated: true, completion: nil)
-     
     }
     else {
       currentPage += 1
-      
       let indexPath = IndexPath(item: currentPage, section: 0)
       slideScreenCollection.scrollToItem(at: indexPath,
                                          at: .centeredHorizontally,
                                          animated: true)
     }
   }
-  
 }

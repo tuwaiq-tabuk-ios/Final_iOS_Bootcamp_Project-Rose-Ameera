@@ -24,10 +24,11 @@ class HomeVC: UIViewController,
   @IBOutlet weak var makeYourBouquetView: UIView!
   
   
+  let rose = NSLocalizedString("ROSE", comment: "")
+  
   //MARK: - Variables
-  let labelsName = ["Chooce Or Create your own bouquet 😍",
-                    "Or do you want to gift it? 💕",
-                    "Log in now 👀"]
+  let labelsName = [NSLocalizedString("Chooce Or Create your own bouquet 😍", comment: ""),
+                    NSLocalizedString("Or do you want to gift it? 💕", comment: "")]
   
   let floewrsBouquetsCollection = [Bouquets(imageOfBouquet: UIImage(named:"bouquet1")!, price: 90.0, imageName: "Rosé1"),
                                    Bouquets(imageOfBouquet: UIImage(named:"bouquet2")!, price: 90.0, imageName: "Rosé2"),
@@ -46,6 +47,7 @@ class HomeVC: UIViewController,
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    roseLable.text = rose
     
     // Collections delegats
     autoCollectionView.delegate = self
@@ -56,33 +58,25 @@ class HomeVC: UIViewController,
     buttonsCornerRadius()
     startTimer()
     
-   // constraint for homeVC views
+    // constraint for homeVC views
     roseLable.translatesAutoresizingMaskIntoConstraints = false
-  //  autoCollectionView.translatesAutoresizingMaskIntoConstraints = false
     allBouquetsView.translatesAutoresizingMaskIntoConstraints = false
-   // bouquetsCollectionView.translatesAutoresizingMaskIntoConstraints = false
     makeYourBouquetView.translatesAutoresizingMaskIntoConstraints = false
     
-
-    roseLable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
+    roseLable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                   constant: 30).isActive = true
     roseLable.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-                                 
-    allBouquetsView.topAnchor.constraint(equalTo: autoCollectionView.bottomAnchor, constant: 100).isActive = true
-    allBouquetsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 10).isActive = true
-    allBouquetsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 300).isActive = true
-
-    makeYourBouquetView.topAnchor.constraint(equalTo: bouquetsCollectionView.bottomAnchor, constant: 60).isActive = true
-    makeYourBouquetView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -300).isActive = true
-    makeYourBouquetView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
-    makeYourBouquetView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -150).isActive = true
-
-    
+    allBouquetsView.topAnchor.constraint(equalTo: autoCollectionView.bottomAnchor,
+                                         constant: 100).isActive = true
+    allBouquetsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                              constant: 10).isActive = true
+    allBouquetsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                                             constant: 300).isActive = true
   }
   
   
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int {
-    
     if (collectionView == autoCollectionView) {
       return labelsName.count
     }
@@ -99,13 +93,11 @@ class HomeVC: UIViewController,
     cellA.setUpCell(image: floewrsBouquetsCollection[indexPath.row].imageOfBouquet,
                     price: floewrsBouquetsCollection[indexPath.row].price,
                     imageName: floewrsBouquetsCollection[indexPath.row].imageName)
-
     
     if (collectionView == autoCollectionView) {
       // Cell for auto images slider collection
       let cellB = autoCollectionView.dequeueReusableCell(withReuseIdentifier: "homeCell",
                                                          for: indexPath) as! AutoCollectionViewCell
-      
       cellB.nameLabel2.text = "\(labelsName[indexPath.row])"
       return cellB
     }
@@ -116,24 +108,10 @@ class HomeVC: UIViewController,
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-//    if collectionView == autoCollectionView{
     return CGSize(width: autoCollectionView.frame.width,
                   height: autoCollectionView.frame.height)
-//    }
-//    return CGSize(width: self.view.frame.width * 0.45, height: self.view.frame.height * 0.45)
   }
   
-  
-//  func collectionView(_ collectionView: UICollectionView,
-//                      layout collectionViewLayout: UICollectionViewLayout,
-//                      sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//    if let layout = collectionViewLayout as? UICollectionViewFlowLayout{
-//      return layout.itemSize
-//    }else{
-//      return .zero
-//    }
-//  }
   
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
@@ -144,17 +122,15 @@ class HomeVC: UIViewController,
   
   func buttonsCornerRadius(){
     autoCollectionView.layer.borderWidth = 1
-    autoCollectionView.layer.borderColor = UIColor.cmMainColor.cgColor
+    autoCollectionView.layer.borderColor = UIColor.cmPink.cgColor
     autoCollectionView.layer.cornerRadius = 15
     
     bouquetsCollectionView.layer.borderWidth = 1
-    bouquetsCollectionView.layer.borderColor = UIColor.cmMainColor.cgColor
-   // bouquetsCollectionView.layer.cornerRadius = 15
+    bouquetsCollectionView.layer.borderColor = UIColor.cmPink.cgColor
     
-    makeYourBouquetView.layer.borderColor = UIColor.cmMainColor.cgColor
+    makeYourBouquetView.layer.borderColor = UIColor.cmPink.cgColor
     makeYourBouquetView.layer.borderWidth = 1.5
-    makeYourBouquetView.layer.cornerRadius = 35
- 
+    makeYourBouquetView.layer.cornerRadius = 25
   }
   
   
@@ -185,24 +161,24 @@ class HomeVC: UIViewController,
   @IBAction func organizeBtnPressed(_ sender: UIBarButtonItem) {
     
     if count == 0  {
-    let popOverVC =
-    UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MorePopUpVC") as! MorePopUpVC
-    self.addChild(popOverVC)
-    popOverVC.view.frame = self.view.frame
-    self.view.addSubview(popOverVC.view)
-    popOverVC.didMove(toParent: self)
+      let popOverVC =
+      UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MorePopUpVC") as! MorePopUpVC
+      self.addChild(popOverVC)
+      popOverVC.view.frame = self.view.frame
+      self.view.addSubview(popOverVC.view)
+      popOverVC.didMove(toParent: self)
       count += 1
-    
+      
     }
     else if count == 1 {
-
+      
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
       let controller = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
       self.navigationController?.pushViewController(controller, animated: false)
     }
   }
   
-    
+  
   @IBAction func cartButtonPressed(_ sender: UIBarButtonItem) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let controller = storyboard.instantiateViewController(withIdentifier: "ShopCardVC") as! ShopCardVC
@@ -212,7 +188,7 @@ class HomeVC: UIViewController,
   
   @IBAction func searchButtonPressed(_ sender: UIBarButtonItem) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let controller = storyboard.instantiateViewController(withIdentifier: "SearchBarVC2") as! SearchBarVC2
+    let controller = storyboard.instantiateViewController(withIdentifier: "SearchVC") as! SearchVC
     self.navigationController?.pushViewController(controller, animated: true)
   }
   

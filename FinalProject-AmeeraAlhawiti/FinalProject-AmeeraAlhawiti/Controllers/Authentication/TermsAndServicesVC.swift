@@ -15,7 +15,7 @@ class TermsAndServicesVC: UIViewController{
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = UIColor.cmWhite
+//    view.backgroundColor = UIColor.cmWhite
     
     TermsAndServices.text = """
 

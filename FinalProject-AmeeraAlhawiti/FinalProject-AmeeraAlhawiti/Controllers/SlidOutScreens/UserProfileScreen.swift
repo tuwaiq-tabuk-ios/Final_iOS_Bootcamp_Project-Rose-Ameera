@@ -39,6 +39,7 @@ class UserProfileScreen: UIViewController {
     Utilities.styleTextField(emailUserProfile)
     Utilities.styleTextField(passwordUserProfile)
     style()
+    hideKeyboardWhenTappedAround()
     
     // MARK: - for handel password
     imageicone.image = UIImage(named: "hideeye")
@@ -59,6 +60,7 @@ class UserProfileScreen: UIViewController {
     imageicone.isUserInteractionEnabled = true
     imageicone.addGestureRecognizer(tapGestureRecognizer)
   }
+  
   
   // tap Gesture Recognizer selector
   @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
@@ -142,4 +144,3 @@ class UserProfileScreen: UIViewController {
     }
   }
 }
-
