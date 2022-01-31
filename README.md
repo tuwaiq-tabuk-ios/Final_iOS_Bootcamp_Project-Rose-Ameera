@@ -27,3 +27,13 @@ People who want to buy or gift a bouquet of flowers and owners of flourist shops
    - The user can put his address or the address of the person he wants to deliver to
    - If he/she adds it to his/her favourites, he/she can postpone the payment again
    - He/she can change his/her data and see his/her favourites
+
+## Demo
+
+<div> 
+  
+
+   <img src="https://user-images.githubusercontent.com/91871715/151814210-d301783c-445e-4a2a-bf62-afff9e1d3753.png" alt="1L" width="120" height="240">
+  
+  </div>
+
