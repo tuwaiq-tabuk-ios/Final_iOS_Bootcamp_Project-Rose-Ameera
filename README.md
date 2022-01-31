@@ -28,9 +28,10 @@ People who want to buy or gift a bouquet of flowers and owners of flourist shops
    - If he/she adds it to his/her favourites, he/she can postpone the payment again
    - He/she can change his/her data and see his/her favourites
 
-## Screenshots
+# screenshots
+## Dark Mode
 
-<div> 
+<div>  
    <img src="https://user-images.githubusercontent.com/91871715/151814210-d301783c-445e-4a2a-bf62-afff9e1d3753.png" alt="1L" width="120" height="240">
     <img src="https://user-images.githubusercontent.com/91871715/151815155-d5af5601-1871-442b-bad3-616f7ee40ab1.png" alt="1L" width="120" height="240">
     <img src="https://user-images.githubusercontent.com/91871715/151815399-67e48aee-869b-461d-a373-612ea093b918.png" alt="1L" width="120" height="240">
@@ -40,5 +41,6 @@ People who want to buy or gift a bouquet of flowers and owners of flourist shops
      <img src="https://user-images.githubusercontent.com/91871715/151815479-5d7cc910-adfb-4900-8410-3d2f1736b38b.png" alt="1L" width="120" height="240">
      <img src="https://user-images.githubusercontent.com/91871715/151815518-74b35acc-2016-4c0b-b2c4-c5dee5df4d15.png" alt="1L" width="120" height="240">
      <img src="https://user-images.githubusercontent.com/91871715/151815539-92615272-2f6b-48c7-b0c3-461217301b0f.png" alt="1L" width="120" height="240">
+    <img src="https://user-images.githubusercontent.com/91871715/151816711-9ffc0bed-4f93-40c9-884f-7a302a5aee92.png" alt="1L" width="120" height="240">
     </div>
 
